@@ -1,6 +1,7 @@
 import { useController } from 'react-hook-form';
 import { Input } from '../../../shared';
 import { SignupForm } from '../../types';
+import { useSignupFormService } from '../../services';
 
 export function useFirstNameInput() {
   const controller = useController<SignupForm>({
@@ -15,10 +16,16 @@ export function useFirstNameInput() {
 }
 
 export function FirstNameInput() {
+  const { trigger } = useSignupFormService();
   const {
     fieldState: { error, isTouched, isDirty, invalid },
     field: { onChange, value, onBlur },
   } = useFirstNameInput();
+
+  const handleChange = (value: string) => {
+    onChange(value);
+    trigger('password');
+  };
 
   return (
     <Input
@@ -26,7 +33,7 @@ export function FirstNameInput() {
       label="First name"
       value={value}
       type="text"
-      onChange={(e) => onChange(e.target.value)}
+      onChange={(e) => handleChange(e.target.value)}
       onBlur={onBlur}
       isInvalid={isTouched && invalid}
       isValid={isTouched && isDirty && !invalid}
