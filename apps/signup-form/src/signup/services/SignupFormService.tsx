@@ -7,9 +7,7 @@ export function SignupFormService(props: { children: React.ReactNode }) {
 
   return (
     <FormProvider {...formMethods}>
-      {JSON.stringify(formMethods.formState.errors)}
       <form onSubmit={formMethods.handleSubmit(handleSubmit)}>
-        {JSON.stringify(formMethods.formState.isValid)}
         {props.children}
       </form>
     </FormProvider>
