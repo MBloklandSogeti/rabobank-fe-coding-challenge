@@ -7,9 +7,7 @@ export function SignupFormService(props: { children: React.ReactNode }) {
 
   return (
     <FormProvider {...formMethods}>
-      <form onSubmit={formMethods.handleSubmit(handleSubmit)}>
-        {props.children}
-      </form>
+      <form onSubmit={handleSubmit}>{props.children}</form>
     </FormProvider>
   );
 }

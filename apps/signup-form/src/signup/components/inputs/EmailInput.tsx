@@ -25,6 +25,7 @@ export function useEmailInput() {
 
 export function EmailInput() {
   const {
+    formState: { isSubmitted },
     fieldState: { error, isTouched, isDirty, invalid },
     field: { onChange, value, onBlur },
   } = useEmailInput();
@@ -38,9 +39,9 @@ export function EmailInput() {
       autoComplete="email"
       onChange={(e) => onChange(e.target.value)}
       onBlur={onBlur}
-      isInvalid={isTouched && invalid}
-      isValid={isTouched && isDirty && !invalid}
-      feedback={(isTouched && error?.message) || undefined}
+      isInvalid={(isTouched || isSubmitted) && invalid}
+      isValid={(isTouched || isSubmitted) && isDirty && !invalid}
+      feedback={((isTouched || isSubmitted) && error?.message) || undefined}
     />
   );
 }

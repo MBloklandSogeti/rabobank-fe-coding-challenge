@@ -29,6 +29,7 @@ export function SignupForm() {
         <FormActionsWrapper>
           <SpinnerButton
             spin={submitting}
+            disabled={submitting}
             className="btn btn-primary"
             type="submit"
           >

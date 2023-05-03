@@ -16,15 +16,14 @@ export function useLastNameInput() {
 }
 
 export function LastNameInput() {
-  const { trigger } = useSignupFormService();
   const {
+    formState: { isSubmitted },
     fieldState: { error, isTouched, isDirty, invalid },
     field: { onChange, value, onBlur },
   } = useLastNameInput();
 
   const handleChange = (value: string) => {
     onChange(value);
-    trigger('password');
   };
 
   return (
@@ -35,9 +34,9 @@ export function LastNameInput() {
       type="text"
       onChange={(e) => handleChange(e.target.value)}
       onBlur={onBlur}
-      isInvalid={isTouched && invalid}
-      isValid={isTouched && isDirty && !invalid}
-      feedback={(isTouched && error?.message) || undefined}
+      isInvalid={(isTouched || isSubmitted) && invalid}
+      isValid={(isTouched || isSubmitted) && isDirty && !invalid}
+      feedback={((isTouched || isSubmitted) && error?.message) || undefined}
     />
   );
 }

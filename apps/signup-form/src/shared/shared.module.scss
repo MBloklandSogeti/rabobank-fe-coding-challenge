@@ -1,3 +1,6 @@
+@import '../variables.scss';
+@import 'bootstrap';
+
 .form-wrapper {
   border: 1px solid rgb(227, 227, 227);
   border-radius: 5px;
@@ -14,5 +17,38 @@
     padding: 1.5rem 3rem;
     border-top: 1px solid rgb(227, 227, 227);
     text-align: right;
+  }
+}
+
+.alert {
+  margin-bottom: 2rem;
+  border-width: 1px 1px 1px 8px;
+  border-style: solid;
+  color: $primary-dark;
+  font-size: 0.9rem;
+
+  h4 {
+    font-size: 0.9rem;
+    color: $primary;
+  }
+
+  &.alert-warning {
+    border-color: $warning;
+    background-color: $warning-light;
+  }
+
+  &.alert-success {
+    border-color: $success;
+    background-color: $light;
+  }
+
+  &.alert-primary {
+    border-color: $primary;
+    background-color: $white;
+  }
+
+  &.alert-danger {
+    border-color: $danger;
+    background-color: $light;
   }
 }

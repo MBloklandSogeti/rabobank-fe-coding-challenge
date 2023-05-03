@@ -1,6 +1,7 @@
 import React from 'react';
 import { SignupForm } from '../types';
 import { postSignupForm } from '../api';
+import { useAlertService } from '../../shared';
 
 export type SignupState = {
   submitting: boolean;
@@ -11,6 +12,7 @@ export const initialSignupState: SignupState = {
 };
 
 export function useSignup() {
+  const { newAlert } = useAlertService();
   const [state, setState] = React.useState(initialSignupState);
   const [currentAbortController, setAbortController] = React.useState(
     new AbortController()
@@ -26,9 +28,21 @@ export function useSignup() {
     const abortController = new AbortController();
     setAbortController(abortController);
 
-    await postSignupForm(form, abortController.signal).catch(() => {
-      return;
-    });
+    await postSignupForm(form, abortController.signal)
+      .then(() => {
+        newAlert({
+          type: 'success',
+          title: 'Successfully registered!',
+          message: 'You have been registered for Rabobank.',
+        });
+      })
+      .catch(() => {
+        newAlert({
+          type: 'danger',
+          title: 'Something went wrong..',
+          message: 'Please try again (later).',
+        });
+      });
 
     toggleSubmitting();
   };
