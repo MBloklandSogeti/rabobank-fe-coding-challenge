@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "./variables";
+
+@import "bootstrap";
+
+html, body {
+    font-family: "Myriad Regular", "Segoe UI", "Helvetica Neue", arial, sans-serif;
+}
+
+.btn {
+    font-family: "Myriad SemiBold", "Segoe UI", "Helvetica Neue", arial, sans-serif;
+    font-size: 1.2rem;
+    padding: 0.6rem 1.5rem;
+}

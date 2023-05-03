@@ -1,0 +1,18 @@
+.form-wrapper {
+  border: 1px solid rgb(227, 227, 227);
+  border-radius: 5px;
+
+  .inputs {
+    padding: 3rem;
+
+    & > * {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .actions {
+    padding: 1.5rem 3rem;
+    border-top: 1px solid rgb(227, 227, 227);
+    text-align: right;
+  }
+}
