@@ -8,7 +8,6 @@ export function useSignupForm() {
   const formMethods = useForm<SignupForm>({ mode: 'onChange' });
 
   const handleSubmit = (form: SignupForm) => {
-    console.log('hello');
     signup(form);
   };
 
