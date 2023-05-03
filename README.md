@@ -25,6 +25,12 @@ yarn install
 yarn start
 ```
 
+3. e2e test should be run with Nx Console for ease, or use global nx command
+
+```
+nx run signup-form-e2e:e2e
+```
+
 ## Architecture
 
 The main idea throughout the application is dividing, at first, into modules, loosely based on an epic, greater functionality. In this case the application is divided as follows:
