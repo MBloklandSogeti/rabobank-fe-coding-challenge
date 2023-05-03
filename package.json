@@ -2,7 +2,9 @@
   "name": "rabobank-fe-coding-challenge",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx run signup-form:serve"
+  },
   "private": true,
   "dependencies": {
     "axios": "^1.4.0",
