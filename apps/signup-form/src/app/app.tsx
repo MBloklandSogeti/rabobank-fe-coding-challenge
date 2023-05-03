@@ -1,15 +1,16 @@
 import React from 'react';
-import { Header, Main } from './components';
+import { Footer, Header, Main } from './components';
 import { Signup } from '../signup/Signup';
 
 export function App() {
   return (
-    <div>
+    <>
       <Header />
       <Main>
         <Signup />
       </Main>
-    </div>
+      <Footer />
+    </>
   );
 }
 

@@ -1,3 +1,4 @@
+@import '../variables';
 @import 'bootstrap';
 
 .header {
@@ -29,4 +30,13 @@
   margin-top: 5rem;
   margin-bottom: 5rem;
   max-width: 778px;
+}
+
+.footer {
+  background-color: $light;
+  width: 100%;
+  padding: 1rem 3rem;
+  color: $primary;
+  text-align: center;
+  font-size: 0.9rem;
 }
